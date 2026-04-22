@@ -1,16 +1,35 @@
+using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public MyStack<String> nameStack = new();
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    [Button]
+    public void PushToStack(string value)
     {
-        
+        nameStack.Push(value);
     }
+    [Button]
+    public void PopFromStack()
+    {
+        Debug.Log(nameStack.Pop()); 
+    }
+    [Button]
+    public void PeekFromStack()
+    {
+        Debug.Log(nameStack.Peek());
+    }
+    [Button]
+    public void ClearStack()
+    {
+        nameStack.Clear();
+    }
+    [Button]
+    public void Count() => Debug.Log(nameStack.Count);
+
 }
